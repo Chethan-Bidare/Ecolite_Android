@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="168268" started-at="2018-02-17T11:56:41Z" finished-at="2018-02-17T11:59:29Z">
+  <suite name="Default suite" duration-ms="126007" started-at="2018-02-19T10:16:43Z" finished-at="2018-02-19T10:18:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="168268" started-at="2018-02-17T11:56:41Z" finished-at="2018-02-17T11:59:29Z">
+    <test name="Default test" duration-ms="126007" started-at="2018-02-19T10:16:43Z" finished-at="2018-02-19T10:18:49Z">
       <class name="c2info_ElMob.LoginPageTC.verifylogin">
-        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="openAPP" is-config="true" duration-ms="16896" started-at="2018-02-17T17:26:41Z" finished-at="2018-02-17T17:26:58Z">
+        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="openAPP" is-config="true" duration-ms="17517" started-at="2018-02-19T15:46:43Z" finished-at="2018-02-19T15:47:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openAPP -->
-        <test-method status="PASS" signature="login()[pri:0, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="login" duration-ms="71399" started-at="2018-02-17T17:26:58Z" finished-at="2018-02-17T17:28:09Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="login" duration-ms="61911" started-at="2018-02-19T15:47:01Z" finished-at="2018-02-19T15:48:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="tabcheck()[pri:1, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="tabcheck" duration-ms="79955" started-at="2018-02-17T17:28:09Z" finished-at="2018-02-17T17:29:29Z">
+        <test-method status="PASS" signature="tabcheck()[pri:1, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="tabcheck" duration-ms="46562" started-at="2018-02-19T15:48:03Z" finished-at="2018-02-19T15:48:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tabcheck -->

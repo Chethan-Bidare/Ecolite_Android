@@ -52,32 +52,7 @@ public class Sales extends TestBase{
 	@FindBy(xpath=".//*[@class='android.widget.FrameLayout' and @index=0]")
 	WebElement searchedCustomerName;
 	
-	/*@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
+	/*
 	
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
 	WebElement salescheckbox

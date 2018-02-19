@@ -31,10 +31,21 @@ public class LoginPage extends TestBase{
 	
 	public void doLogin(String userid, String password) throws InterruptedException{
 		Thread.sleep(10000);
-		this.userid.sendKeys(userid);
-		this.password.sendKeys(password);
-		signinButton.click();
-		Thread.sleep(50000);
+		try {
+			this.userid.sendKeys(userid);
+			this.password.sendKeys(password);
+			signinButton.click();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pwd.sendKeys(password);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Thread.sleep(40000);
 	}
 	
 	
