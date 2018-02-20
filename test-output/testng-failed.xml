@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="c2info_ElMob.LoginPageTC.verifylogin">
+      <class name="c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale">
         <methods>
-          <include name="tabcheck"/>
+          <include name="verifyStockAfterSale"/>
           <include name="openAPP"/>
         </methods>
-      </class> <!-- c2info_ElMob.LoginPageTC.verifylogin -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

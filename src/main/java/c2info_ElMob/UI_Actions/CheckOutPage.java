@@ -192,6 +192,10 @@ TouchAction touchAction = new TouchAction(driver);
 		return amtPaid ;
 	}
 	
+	public void clickOnDenyButton(){
+		driver.findElementById("android:id/button2").click();
+	}
+	
 	public void clickOnNewSaleButton(){
 		newSaleButton.click();
 	}

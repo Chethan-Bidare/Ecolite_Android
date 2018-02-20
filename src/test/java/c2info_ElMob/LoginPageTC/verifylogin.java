@@ -32,29 +32,35 @@ public class verifylogin extends TestBase{
 		Sales sales = new Sales(driver);
 		SalesCartPage salesCart = new SalesCartPage(driver); 
 		CheckOutPage checkOutPage = new CheckOutPage(driver);
+		
+		/*hp.tapOnPurchaseTab();
+		hp.enterSupplierName("ace", "500", "5");*/
+		
 		//hp.tapOnPurchaseTab();
 		//hp.tapOnMyStoreTab();
 		//hp.tapOnSalesTab();
 		//hp.selectSalesreturnCheckbox();
 		//hp.selectSalesCheckbox();
-		//hp.enterCustomerName("v");
+		//hp.enterCustomerName("veena");
 		hp.tapOnStartButton();
 		hideKeyboard();
+		Thread.sleep(3000);
+		sales.selectItemByName("Astyfer Syp");
 		//Thread.sleep(2000);
 		
 		//sales.tapOnTabOptionsInSales("Old invoice");
-		salesCart.clickOnCustIconInCartPage();
+		/*salesCart.clickOnCustIconInCartPage();
 		sales.searchByCustomerName("visal");
 		Thread.sleep(3000);
-		sales.clickOnSearchedCustomer();
+		sales.clickOnSearchedCustomer();*/
 		//Thread.sleep(3000);
-		sales.searchByItemName("A Gen 5 D data");
+		//sales.searchByItemName("A Gen 5 D data");
 		//Thread.sleep(2000);
-		sales.clickOnSearchedItem();
+		/*//sales.clickOnSearchedItem();
 		hideKeyboard();
 		sales.enterDiscount("5");
 		hideKeyboard();
-		sales.clickOnAddButton();
+		sales.clickOnAddButton();*/
 		/*sales.searchByItemName("ajith");
 		Thread.sleep(2000);
 		sales.clickOnSearchedItem();
@@ -83,9 +89,9 @@ public class verifylogin extends TestBase{
 		hideKeyboard();
 		sales.clickOnAddButton();*/
 		//Thread.sleep(2000);		
-		salesCart.clickOnGetPayment();
+		//salesCart.clickOnGetPayment();
 		//Thread.sleep(2000);
-		System.out.println(checkOutPage.getGSTNoInCheckOut());
+		//System.out.println(checkOutPage.getGSTNoInCheckOut());
 		//System.out.println(checkOutPage.getCustomerDetails());
 		//checkOutPage.selectStateFromDropdown("Karnataka");
 		/*checkOutPage.enableHomeDelivery();
@@ -96,8 +102,8 @@ public class verifylogin extends TestBase{
 		checkOutPage.selectPaymentMode("JioMoney");
 		hideKeyboard();
 		checkOutPage.selectPaymentMode("Cash");*/
-		System.out.println(checkOutPage.getDiscValueInSuccessPage());
-		System.out.println(checkOutPage.getGSTNoInCheckOut());
+		/*System.out.println(checkOutPage.getDiscValueInSuccessPage());
+		System.out.println(checkOutPage.getGSTNoInCheckOut());*/
 	}
 	
 }

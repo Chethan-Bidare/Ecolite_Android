@@ -105,7 +105,7 @@ public class Sales extends TestBase{
 		List<WebElement> itemStk = driver.findElementsById("com.c2info.ecolite:id/textview_itemcount");
 		HashMap<String,Integer> itemStock = new HashMap<String, Integer>();
 		ArrayList<String> itemNames = getItemName();
-		itemNames.remove(itemNames.size()-1);
+		//itemNames.remove(itemNames.size()-1);
 		System.out.println(itemNames);
 		int index = 0;
 		for(WebElement we : itemStk){
@@ -178,7 +178,9 @@ public class Sales extends TestBase{
 		for(WebElement we : itemList){
 			
 		}*/
-		
+		//System.out.println(driver.getPageSource());
+		driver.findElementByName(""+itemName+"").click();
+		//driver.findElement(By.xpath("android.widget.TextView[@index=1 and contains(@text,'"+itemName+"')]")).click();
 	}
 	
 	public void clickOnAddButton(){

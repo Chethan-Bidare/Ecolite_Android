@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="126007" started-at="2018-02-19T10:16:43Z" finished-at="2018-02-19T10:18:49Z">
+  <suite name="Default suite" duration-ms="119009" started-at="2018-02-20T12:01:45Z" finished-at="2018-02-20T12:03:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="126007" started-at="2018-02-19T10:16:43Z" finished-at="2018-02-19T10:18:49Z">
-      <class name="c2info_ElMob.LoginPageTC.verifylogin">
-        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="openAPP" is-config="true" duration-ms="17517" started-at="2018-02-19T15:46:43Z" finished-at="2018-02-19T15:47:01Z">
+    <test name="Default test" duration-ms="119009" started-at="2018-02-20T12:01:45Z" finished-at="2018-02-20T12:03:44Z">
+      <class name="c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale">
+        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale@60c6f5b]" name="openAPP" is-config="true" duration-ms="16915" started-at="2018-02-20T17:31:45Z" finished-at="2018-02-20T17:32:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openAPP -->
-        <test-method status="PASS" signature="login()[pri:0, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="login" duration-ms="61911" started-at="2018-02-19T15:47:01Z" finished-at="2018-02-19T15:48:03Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale@60c6f5b]" name="login" duration-ms="62163" started-at="2018-02-20T17:32:02Z" finished-at="2018-02-20T17:33:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="tabcheck()[pri:1, instance:c2info_ElMob.LoginPageTC.verifylogin@60c6f5b]" name="tabcheck" duration-ms="46562" started-at="2018-02-19T15:48:03Z" finished-at="2018-02-19T15:48:49Z">
+        <test-method status="PASS" signature="verifyStockAfterSale()[pri:1, instance:c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale@60c6f5b]" name="verifyStockAfterSale" duration-ms="39912" started-at="2018-02-20T17:33:04Z" finished-at="2018-02-20T17:33:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tabcheck -->
-      </class> <!-- c2info_ElMob.LoginPageTC.verifylogin -->
+        </test-method> <!-- verifyStockAfterSale -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

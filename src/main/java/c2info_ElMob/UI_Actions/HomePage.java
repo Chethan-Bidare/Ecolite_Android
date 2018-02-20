@@ -1,7 +1,6 @@
 package c2info_ElMob.UI_Actions;
 
-import java.util.List;
-
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import c2info_ElMob.TestBase.TestBase;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class HomePage extends TestBase{
 
@@ -38,7 +38,23 @@ public class HomePage extends TestBase{
 	@FindBy(id="com.c2info.ecolite:id/btnStartBilling")
 	WebElement startButton ;
 	
-	/*@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
+	@FindBy(id="com.c2info.ecolite:id/autocomplete_supplier")
+	WebElement supplierNameSearch ;
+	
+	@FindBy(id="com.c2info.ecolite:id/edittext_bill_no")
+	WebElement suppBillNo ;
+	
+	@FindBy(id="com.c2info.ecolite:id/edittext_bill_amount")
+	WebElement suppBillAmt ;
+	
+	@FindBy(id="com.c2info.ecolite:id/edittext_bill_discount")
+	WebElement suppBillDisc ;
+	
+	
+	@FindBy(id="com.c2info.ecolite:id/button_start")
+	WebElement startPurchaseBtn ;
+	/*
+	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
 	WebElement salescheckbox
 	
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
@@ -49,11 +65,10 @@ public class HomePage extends TestBase{
 	WebElement salescheckbox
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
 	WebElement salescheckbox
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox*/
+	*/
 	
 	public HomePage(AndroidDriver<WebElement> driver){
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 	}
 	
 	public void tapOnPurchaseTab(){
@@ -98,5 +113,20 @@ public class HomePage extends TestBase{
 		startButton.click();
 	}
 	
+	
+	public void enterSupplierName(String suppName,String billAmt,String billDisc) throws InterruptedException{
+		supplierNameSearch.clear();
+		supplierNameSearch.sendKeys(suppName);
+		Thread.sleep(3000);
+		int x = supplierNameSearch.getLocation().getX();
+		int y = supplierNameSearch.getLocation().getY();
+		TouchAction action = new TouchAction(driver).tap(x+100, y+100).release();
+		action.perform();
+		suppBillNo.sendKeys(RandomStringUtils.randomAlphanumeric(7));
+		suppBillAmt.sendKeys(billAmt);
+		suppBillDisc.sendKeys(billDisc);
+		hideKeyboard();
+		startPurchaseBtn.click();
+	}
 	
 }
