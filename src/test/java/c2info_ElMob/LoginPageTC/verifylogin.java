@@ -45,8 +45,12 @@ public class verifylogin extends TestBase{
 		hp.tapOnStartButton();
 		hideKeyboard();
 		Thread.sleep(3000);
-		sales.selectItemByName("Astyfer Syp");
-		//Thread.sleep(2000);
+		//sales.selectItemByName("A Gen 5 D data");
+		sales.searchByItemName("A Gen 5 D data");
+		sales.clickOnSearchedItem();
+		Thread.sleep(2000);
+		hideKeyboard();
+		System.out.println(sales.getBatchesWithPriceBySwiping());
 		
 		//sales.tapOnTabOptionsInSales("Old invoice");
 		/*salesCart.clickOnCustIconInCartPage();

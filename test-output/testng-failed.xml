@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale">
+      <class name="c2info_ElMob.SalesTC.TC_008_VerifyTaxCalculationItemWise">
         <methods>
-          <include name="verifyStockAfterSale"/>
           <include name="openAPP"/>
+          <include name="verifyTaxFrMultipleItems"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_008_VerifyTaxCalculationItemWise -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

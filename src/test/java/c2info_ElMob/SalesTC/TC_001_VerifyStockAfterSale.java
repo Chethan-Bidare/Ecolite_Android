@@ -1,6 +1,6 @@
 package c2info_ElMob.SalesTC;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.testng.Assert;
@@ -17,16 +17,13 @@ import c2info_ElMob.UI_Actions.SalesCartPage;
 public class TC_001_VerifyStockAfterSale extends TestBase {
 
 	@BeforeClass
-	public void openAPP() throws MalformedURLException{
-		DeviceCapabilities();
+	public void openAPP() throws IOException, InterruptedException{
+		init();
+		LoginPage lp = new LoginPage();
+		lp.doLogin(OR.getProperty("userId"), OR.getProperty("pwd"));
 	}
 	
-	@Test(priority=0)
-	public void login() throws InterruptedException{
-		LoginPage lp = new LoginPage();
-		lp.doLogin("8147519664", "224488");
-		Assert.assertEquals(lp.getHomepageTitle(), "Home");
-	}
+	
 	
 	@Test(priority=1)
 	public void verifyStockAfterSale(){
@@ -36,10 +33,9 @@ public class TC_001_VerifyStockAfterSale extends TestBase {
 		CheckOutPage checkout = new CheckOutPage(driver);
 		
 		homepage.tapOnStartButton();
-		sales.searchByItemName("Astyfer Syp");
+		sales.searchByItemName(APP.getProperty("ItemName0"));
 		HashMap<String,Integer> stockcheck = sales.getItemNamesWithStock();
-		System.out.println(stockcheck.get("Astyfer Syp"));
-		int stock = stockcheck.get("Astyfer Syp") ;
+		int stock = stockcheck.get(APP.getProperty("ItemName0")) ;
 		sales.clickOnSearchedItem();
 		hideKeyboard();
 		sales.clickOnAddButton();
@@ -49,9 +45,9 @@ public class TC_001_VerifyStockAfterSale extends TestBase {
 		swipeUpInBatchList();
 		checkout.clickOnNewSaleButton();
 		homepage.tapOnStartButton();
-		sales.searchByItemName("Astyfer Syp");
+		sales.searchByItemName(APP.getProperty("ItemName0"));
 		HashMap<String,Integer> stockchecknew =  sales.getItemNamesWithStock();
-		int actualStock = stockchecknew.get("Astyfer Syp")+1 ;
+		int actualStock = stockchecknew.get(APP.getProperty("ItemName0"))+1 ;
 		Assert.assertEquals(actualStock, stock);
 		
 		

@@ -1,6 +1,7 @@
 package c2info_ElMob.UI_Actions;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -90,8 +91,8 @@ public class Sales extends TestBase{
 		}
 		System.out.println(rates);
 		ArrayList<String> itemNames = getItemName();
-		itemNames.remove(itemNames.size()-1);
-		System.out.println(itemNames);
+		//itemNames.remove(itemNames.size()-1);
+		//System.out.println(itemNames);
 		for(int i=0; i<itemNames.size();i++){
 			itemNamesWithPrice.put(itemNames.get(i), rates.get(i));
 		}
@@ -143,6 +144,13 @@ public class Sales extends TestBase{
 		touchAction.tap(driver.findElement(By.xpath(".//*[@class='android.widget.FrameLayout' and @index=0]")));
 		touchAction.perform();*/
 		
+	}
+	
+	public int getStockOfSearchedItem(){
+		String stk = driver.findElement(By.id("com.c2info.ecolite:id/textview_itemcount")).getText();
+		stk = stk.replaceAll("\\+","");
+		int stock = Integer.parseInt(stk);
+		return stock ;
 	}
 	
 	public void searchByCustomerName(String custName){
@@ -212,6 +220,12 @@ public class Sales extends TestBase{
 		discPer.sendKeys(disc);
 	}
 	
+	public double getDiscount(){
+		String dis = discPer.getText();
+		double discount = Double.parseDouble(dis);
+		return discount ;
+	}
+	
 	public void clickOnAddNewBatch(){
 		addNewBatchLink.click();
 	}
@@ -226,6 +240,7 @@ public class Sales extends TestBase{
 		ArrayList<String> batches = new ArrayList<String>();
 		List<WebElement> itemPrices = driver.findElementsById("com.c2info.ecolite:id/text_Batch_Mrp");
 		ArrayList<Float> prices = new ArrayList<Float>();
+		
 		for(WebElement we : itemBatches){
 			batches.add(we.getText().toString().trim());			
 		}
@@ -236,14 +251,106 @@ public class Sales extends TestBase{
 			prices.add(price);
 		}
 		for(int i=0;i<batches.size(); i++){
+			
 			batchesWithprice.put(batches.get(i), prices.get(i));
 		}
 		return batchesWithprice ;
 		
 	}
 	
+	public HashMap<String,Integer> getBatchesWithStock(){
+		HashMap<String,Integer> batchesWithStock = new HashMap<String,Integer>();
+		List<WebElement> itemBatches = driver.findElementsById("com.c2info.ecolite:id/text_Batch_No");
+		ArrayList<String> batches = new ArrayList<String>();
+		List<WebElement> itemstock = driver.findElementsById("com.c2info.ecolite:id/text_Batch_Qty");
+		ArrayList<Integer> stock = new ArrayList<Integer>();
+		
+		for(WebElement we : itemBatches){
+			batches.add(we.getText().toString().trim());			
+		}
+		for(WebElement we : itemstock){
+			String pr = we.getText().toString().trim();
+			pr = pr.replaceAll("Stock : +","");
+			int stk = Integer.parseInt(pr);
+			stock.add(stk);
+		}
+		for(int i=0;i<batches.size(); i++){
+			
+			batchesWithStock.put(batches.get(i), stock.get(i));
+		}
+		return batchesWithStock ;
+		
+	}
 	
+	public HashMap<String,Integer> getBatchesWithStockBySwiping(){
+		HashMap<String, Integer> batchWithStk = new HashMap<String, Integer>();
+		int count =1;
+		while(count<5){
+			batchWithStk.putAll(getBatchesWithStock());
+			swipeUpInBatchList();
+			count++ ;
+		}
+		
+		
+		return batchWithStk ;
+	}
 	
+	public int getSumOfStockofAllBatchesbySwiping(){
+		int sum = 0;
+		for(Integer i : getBatchesWithStockBySwiping().values()){
+			sum += i ;
+		}
+		return sum ;
+	}
 	
+	public HashMap<String,Float> getBatchesWithPriceBySwiping(){
+		HashMap<String, Float> batchWithPrice = new HashMap<String, Float>();
+		int count =1;
+		while(count<5){
+			batchWithPrice.putAll(getBatchesWithPrice());
+			swipeUpInBatchList();
+			count++ ;
+		}
+		
+		
+		return batchWithPrice ;
+	}
 	
+	public float getHighestMrpFromAllBatches(){
+		//ArrayList<Float> values = (ArrayList<Float>) getBatchesWithPriceBySwiping().values();
+		return Collections.max(getBatchesWithPriceBySwiping().values());
+		
+	}
+	
+	public float getPriceOfSingleBatch(){
+		String pr = driver.findElementById("com.c2info.ecolite:id/text_Batch_Mrp").getText();
+		pr = pr.replaceAll("\u20B9","");
+		Float price = Float.parseFloat(pr);
+		return price ;
+	}
+	
+	public float getMRPAfterDisc(float discPer ,float mrp, float tax){
+		float saleRate = getSaleRate(mrp, tax);
+		float SaleRateAftrDisc = saleRate * ((100-discPer)/100) ;
+		float taxVal = mrp - saleRate;
+		float SalerateAfterDiscWithTax = SaleRateAftrDisc + taxVal ;
+		return SalerateAfterDiscWithTax ;
+	}
+	
+	public float getSaleRate(float mrp, float tax){
+		
+		float saleRate = (mrp * 100)/(100+ tax) ;
+		System.out.println("Calculated Sale Rate="+saleRate);
+		return saleRate ;
+	}
+	
+	public float getDiscountValue(float discPer ,float mrp, float tax){
+		float discValue = mrp - getMRPAfterDisc(discPer, mrp, tax);
+		return discValue ;
+	}
+	
+	public double getTaxAmtCalculated(float mrp, float tax){
+		double taxAmt = mrp - getSaleRate(mrp, tax);
+		return taxAmt ;
+	}
 }

@@ -1,6 +1,7 @@
 package c2info_ElMob.UI_Actions;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import c2info_ElMob.TestBase.TestBase;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class HomePage extends TestBase{
@@ -94,16 +96,23 @@ public class HomePage extends TestBase{
 	public void enterCustomerName(String custName) throws InterruptedException{
 		customerName.clear();
 		customerName.sendKeys(custName);
-		customerName.clear();
-		customerName.sendKeys(custName);
-		Thread.sleep(5000);
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(customerName).release().perform();
+		driver.pressKeyCode(AndroidKeyCode.BACKSPACE);
+		Thread.sleep(3000);
 		int x = customerName.getLocation().getX();
 		int y = customerName.getLocation().getY();
 		TouchAction action = new TouchAction(driver).tap(x+100, y+100).release();
 		action.perform();
 		
-		
 	}
+	
+	/*public void clearText(){
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(customerName).release().perform();
+		driver.pressKeyCode(AndroidKeyCode.BACKSPACE);
+		   //driver.getKeyboard().sendKeys(Keys.DELETE);
+	}*/
 	
 	public void tapOnSalesReports(){
 		salesreportButton.click();

@@ -148,8 +148,16 @@ TouchAction touchAction = new TouchAction(driver);
 		driver.findElement(By.xpath("//android.widget.RadioButton[contains(@text,'"+paymode+"')]")).click();
 	}
 	
+	
+	public float getDiscValueInCheckOutPage(){
+		String disc = discAmt.getText();
+		disc = disc.replaceAll("\u20B9", "").trim().toString();
+		float discValue = Float.parseFloat(disc);
+		return discValue;
+	}
+	
 	public float getDiscValueInSuccessPage(){
-		String disc = discAmt.getText().trim().toString();
+		String disc = discInSuccessPage.getText().trim().toString();
 		disc = disc.replaceAll("\u20B9","");
 		float discAmt = Float.parseFloat(disc);
 		return discAmt ;
@@ -174,10 +182,10 @@ TouchAction touchAction = new TouchAction(driver);
 		confirmButton.click();
 	}
 	
-	public float getTaxValueInSuccessPage(){
+	public double getTaxValueInSuccessPage(){
 		String tax = this.tax.getText().trim().toString();
 		tax = tax.replaceAll("\u20B9","");
-		float taxAmt = Float.parseFloat(tax);
+		double taxAmt = Double.parseDouble(tax);
 		return taxAmt ;
 	}
 	

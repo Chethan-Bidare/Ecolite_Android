@@ -145,4 +145,27 @@ public class SalesCartPage extends TestBase {
 		CustIconInCartPage.click();
 	}
 	
+	public float getPriceForSingleItemInCartPage(){
+		String pr = driver.findElementById("com.c2info.ecolite:id/textview_amount").getText();
+		pr = pr.replaceAll("\u20B9", "");
+		Float price = Float.parseFloat(pr);
+		return price ;
+	}
+	
+	public ArrayList<Float> getPriceForMultipleItemsInCartPage(){
+		ArrayList<Float> prices = new ArrayList<Float>();
+		List<WebElement> itemPrices = driver.findElementsById("com.c2info.ecolite:id/textview_amount");
+		for(WebElement we :itemPrices){
+			String pr = we.getText().trim().toString();
+			pr = pr.replaceAll("\u20B9", "");
+			Float price = Float.parseFloat(pr);
+			prices.add(price);
+			System.out.println(prices);
+		}
+		return prices ;
+	}
+	
+	
+	
+	
 }
