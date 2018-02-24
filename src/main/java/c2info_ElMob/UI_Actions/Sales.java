@@ -215,6 +215,12 @@ public class Sales extends TestBase{
 		}		
 	}
 	
+	public int getQty(){
+		String qty = enterQty.getText();
+		int quantity = Integer.parseInt(qty);
+		return quantity;
+	}
+	
 	public void enterDiscount(String disc){
 		discPer.clear();
 		discPer.sendKeys(disc);
@@ -329,6 +335,7 @@ public class Sales extends TestBase{
 		return price ;
 	}
 	
+	
 	public float getMRPAfterDisc(float discPer ,float mrp, float tax){
 		float saleRate = getSaleRate(mrp, tax);
 		float SaleRateAftrDisc = saleRate * ((100-discPer)/100) ;
@@ -352,5 +359,10 @@ public class Sales extends TestBase{
 	public double getTaxAmtCalculated(float mrp, float tax){
 		double taxAmt = mrp - getSaleRate(mrp, tax);
 		return taxAmt ;
+	}
+	
+	public double calculateItemCost(float mrp,int qty){
+		double itemCost = mrp * qty ;
+		return itemCost ;
 	}
 }

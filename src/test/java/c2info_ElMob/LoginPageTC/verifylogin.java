@@ -6,11 +6,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import c2info_ElMob.TestBase.TestBase;
-import c2info_ElMob.UI_Actions.CheckOutPage;
 import c2info_ElMob.UI_Actions.HomePage;
 import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
-import c2info_ElMob.UI_Actions.SalesCartPage;
 
 public class verifylogin extends TestBase{
 
@@ -30,8 +28,8 @@ public class verifylogin extends TestBase{
 	public void tabcheck() throws InterruptedException {
 		HomePage hp = new HomePage(driver);
 		Sales sales = new Sales(driver);
-		SalesCartPage salesCart = new SalesCartPage(driver); 
-		CheckOutPage checkOutPage = new CheckOutPage(driver);
+		/*SalesCartPage salesCart = new SalesCartPage(driver); 
+		CheckOutPage checkOutPage = new CheckOutPage(driver);*/
 		
 		/*hp.tapOnPurchaseTab();
 		hp.enterSupplierName("ace", "500", "5");*/

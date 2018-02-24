@@ -28,6 +28,8 @@ public class TC_008_VerifyTaxCalculationItemWise extends TestBase{
 		Sales sales = new Sales(driver);
 		SalesCartPage salesCart = new SalesCartPage(driver);
 		CheckOutPage checkOut = new CheckOutPage(driver);
+		
+		
 		homepage.tapOnStartButton();
 		sales.searchByItemName(APP.getProperty("ItemName12"));
 		sales.clickOnSearchedItem();
@@ -85,7 +87,7 @@ public class TC_008_VerifyTaxCalculationItemWise extends TestBase{
 		mrps.add(mrp);
 		taxForAllItems.add(sales.getTaxAmtCalculated(mrp,0));
 		sales.clickOnAddButton();
-		Double totalTaxForAllItems = getSumOfArraysDouble(taxForAllItems);
+		double totalTaxForAllItems = getSumOfArraysDouble(taxForAllItems);
 		totalTaxForAllItems = (double) Math.round(totalTaxForAllItems);
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();

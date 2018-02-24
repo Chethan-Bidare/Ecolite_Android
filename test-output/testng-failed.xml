@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="c2info_ElMob.SalesTC.TC_008_VerifyTaxCalculationItemWise">
+      <class name="c2info_ElMob.SalesTC.TC_011_VerifyInvoiceValue">
         <methods>
+          <include name="verifyIGSTTax"/>
           <include name="openAPP"/>
-          <include name="verifyTaxFrMultipleItems"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesTC.TC_008_VerifyTaxCalculationItemWise -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_011_VerifyInvoiceValue -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

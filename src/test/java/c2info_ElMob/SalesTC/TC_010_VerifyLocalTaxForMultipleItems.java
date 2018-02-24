@@ -14,8 +14,8 @@ import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
 import c2info_ElMob.UI_Actions.SalesCartPage;
 
-public class TC_009_VerifyIGSTTaxForMultipleItems extends TestBase{
-
+public class TC_010_VerifyLocalTaxForMultipleItems extends TestBase{
+	
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{
 		init();
@@ -31,7 +31,9 @@ public class TC_009_VerifyIGSTTaxForMultipleItems extends TestBase{
 		CheckOutPage checkOut = new CheckOutPage(driver);
 		ArrayList<Float> mrps = new ArrayList<Float>();
 		ArrayList<Double> taxForAllItems = new ArrayList<Double>();
-		homepage.enterCustomerName("i");
+		
+		
+		homepage.enterCustomerName("l");
 		homepage.tapOnStartButton();
 		//First Item adding to cart
 		sales.searchByItemName(APP.getProperty("ItemName12"));
@@ -58,13 +60,19 @@ public class TC_009_VerifyIGSTTaxForMultipleItems extends TestBase{
 		taxForAllItems.add(sales.getTaxAmtCalculated(mrp,0));
 		sales.clickOnAddButton();
 		double totalTaxForAllItems = getSumOfArraysDouble(taxForAllItems);
-		totalTaxForAllItems = (double) Math.round(totalTaxForAllItems);
+		double expectedCGST = totalTaxForAllItems/2;
+		expectedCGST = (double) Math.round(expectedCGST);
+		double expectedSGST = expectedCGST ;
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
 		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
-		double IGSTTax = checkOut.getIGSTValueInSuccessPage();
-		IGSTTax = Math.round(IGSTTax);
-		Assert.assertEquals(IGSTTax, totalTaxForAllItems);
-	}
+		double CGSTTax = checkOut.getCGSTValueInSuccessPage();
+		CGSTTax = Math.round(CGSTTax);
+		double SGSTTax = checkOut.getSGSTValueInSuccessPage();
+		SGSTTax = Math.round(SGSTTax);
+		Assert.assertEquals(CGSTTax, expectedCGST);
+		Assert.assertEquals(SGSTTax, expectedSGST);	
+	}	
+
 }

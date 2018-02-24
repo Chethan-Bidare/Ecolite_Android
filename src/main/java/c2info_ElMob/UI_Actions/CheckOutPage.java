@@ -174,6 +174,7 @@ TouchAction touchAction = new TouchAction(driver);
 	public float getInvoiceValueInSuccessPage(){
 		String value = InvValue.getText().trim().toString();
 		value = value.replaceAll("\u20B9", "").trim().toString();
+		value = value.replaceAll(",", "").trim().toString();
 		float invValue = Float.parseFloat(value);
 		return invValue ;
 	}
@@ -187,6 +188,27 @@ TouchAction touchAction = new TouchAction(driver);
 		tax = tax.replaceAll("\u20B9","");
 		double taxAmt = Double.parseDouble(tax);
 		return taxAmt ;
+	}
+	
+	public double getIGSTValueInSuccessPage(){
+		String IGST = totalIGST.getText().trim().toString();
+		IGST = IGST.replaceAll("\u20B9","");
+		double igst = Double.parseDouble(IGST);
+		return igst ;
+	}
+	
+	public double getCGSTValueInSuccessPage(){
+		String CGST = totalCGST.getText().trim().toString();
+		CGST = CGST.replaceAll("\u20B9","");
+		double cgst = Double.parseDouble(CGST);
+		return cgst ;
+	}
+	
+	public double getSGSTValueInSuccessPage(){
+		String SGST = totalSGST.getText().trim().toString();
+		SGST = SGST.replaceAll("\u20B9","");
+		double sgst = Double.parseDouble(SGST);
+		return sgst ;
 	}
 	
 	public String getPaymentModeInSuccessPage(){
