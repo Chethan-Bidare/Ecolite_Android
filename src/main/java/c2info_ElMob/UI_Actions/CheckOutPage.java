@@ -110,16 +110,16 @@ TouchAction touchAction = new TouchAction(driver);
 		String customerName = this.custName.getText().trim().toString();
 		String customerMob = custMobileNo.getText().trim().toString();
 		String customerCity = city.getText().trim().toString();
+		String State = driver.findElementById("android:id/text1").getText().trim().toString();
+		String GST = custGSTNo.getText().trim().toString();
 		customerDetails.put("CustName",customerName);
 		customerDetails.put("CustMob", customerMob);
 		customerDetails.put("CustCity", customerCity);
-		
+		customerDetails.put("CustState", State);
+		customerDetails.put("CustGST", GST);
 		return customerDetails ;
 	}
 	
-	public String getGSTNoInCheckOut(){
-		return custGSTNo.getText().trim().toString();	
-	}
 	
 	
 	public void selectStateFromDropdownInCheckOut(String state){

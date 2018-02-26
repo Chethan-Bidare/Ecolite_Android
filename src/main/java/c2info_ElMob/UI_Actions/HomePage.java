@@ -95,17 +95,21 @@ public class HomePage extends TestBase{
 	}
 	
 	public void enterCustomerName(String custName) throws InterruptedException{
-		customerName.clear();
 		customerName.sendKeys(custName);
 		TouchAction touchAction = new TouchAction(driver);
 		touchAction.tap(customerName).release().perform();
-		driver.pressKeyCode(AndroidKeyCode.BACKSPACE);
+		driver.pressKeyCode(AndroidKeyCode.BACKSPACE);	
+	}
+	public void enterCustNameAgain(String custName){
+		customerName.sendKeys(custName);
+	}
+	
+	public void selectCustFromDropdown() throws InterruptedException{
 		Thread.sleep(3000);
 		int x = customerName.getLocation().getX();
 		int y = customerName.getLocation().getY();
 		TouchAction action = new TouchAction(driver).tap(x+100, y+100).release();
 		action.perform();
-		
 	}
 	
 	/*public void clearText(){

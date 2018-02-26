@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="110100" started-at="2018-02-26T11:16:17Z" finished-at="2018-02-26T11:18:07Z">
+  <suite name="Default suite" duration-ms="110724" started-at="2018-02-26T12:24:42Z" finished-at="2018-02-26T12:26:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="110100" started-at="2018-02-26T11:16:17Z" finished-at="2018-02-26T11:18:07Z">
-      <class name="c2info_ElMob.SalesTC.TC_018_VerifyPaymentModeCash">
-        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.SalesTC.TC_018_VerifyPaymentModeCash@60c6f5b]" name="openAPP" is-config="true" duration-ms="78271" started-at="2018-02-26T16:46:17Z" finished-at="2018-02-26T16:47:35Z">
+    <test name="Default test" duration-ms="110724" started-at="2018-02-26T12:24:42Z" finished-at="2018-02-26T12:26:33Z">
+      <class name="c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage">
+        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage@60c6f5b]" name="openAPP" is-config="true" duration-ms="78182" started-at="2018-02-26T17:54:42Z" finished-at="2018-02-26T17:56:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openAPP -->
-        <test-method status="PASS" signature="verifyCashSale()[pri:0, instance:c2info_ElMob.SalesTC.TC_018_VerifyPaymentModeCash@60c6f5b]" name="verifyCashSale" duration-ms="31817" started-at="2018-02-26T16:47:35Z" finished-at="2018-02-26T16:48:07Z">
+        <test-method status="PASS" signature="verifyCustomerDetails()[pri:0, instance:c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage@60c6f5b]" name="verifyCustomerDetails" duration-ms="32521" started-at="2018-02-26T17:56:00Z" finished-at="2018-02-26T17:56:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCashSale -->
-      </class> <!-- c2info_ElMob.SalesTC.TC_018_VerifyPaymentModeCash -->
+        </test-method> <!-- verifyCustomerDetails -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
