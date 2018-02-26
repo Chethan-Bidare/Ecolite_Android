@@ -361,8 +361,10 @@ public class Sales extends TestBase{
 		return taxAmt ;
 	}
 	
-	public double calculateItemCost(float mrp,int qty){
+	public double calculateItemCost(float mrp,int qty, double discPer){
 		double itemCost = mrp * qty ;
+		double discAmt = itemCost * (discPer/100) ;
+		itemCost = itemCost - discAmt ;
 		return itemCost ;
 	}
 }

@@ -24,7 +24,7 @@ public class TC_011_VerifyInvoiceValue extends TestBase{
 		}
 		
 		@Test(priority=0)
-		public void verifyIGSTTax() throws InterruptedException{
+		public void verifyInvoiceValue() throws InterruptedException{
 			HomePage homepage = new HomePage(driver);
 			Sales sales = new Sales(driver);
 			SalesCartPage salesCart = new SalesCartPage(driver);
@@ -39,7 +39,7 @@ public class TC_011_VerifyInvoiceValue extends TestBase{
 			hideKeyboard();
 			sales.addQtyManually("5");
 			hideKeyboard();
-			productCost.add(sales.calculateItemCost(sales.getPriceOfSingleBatch(), sales.getQty()));
+			productCost.add(sales.calculateItemCost(sales.getPriceOfSingleBatch(), sales.getQty(),0));
 			sales.clickOnAddButton();
 			
 			//Adding 2nd item
@@ -48,7 +48,7 @@ public class TC_011_VerifyInvoiceValue extends TestBase{
 			hideKeyboard();
 			sales.addQtyManually("5");
 			hideKeyboard();
-			productCost.add(sales.calculateItemCost(sales.getPriceOfSingleBatch(), sales.getQty()));
+			productCost.add(sales.calculateItemCost(sales.getPriceOfSingleBatch(), sales.getQty(),0));
 			sales.clickOnAddButton();
 			
 			//Adding 3rd item
@@ -57,7 +57,7 @@ public class TC_011_VerifyInvoiceValue extends TestBase{
 			hideKeyboard();
 			sales.addQtyManually("5");
 			hideKeyboard();
-			productCost.add(sales.calculateItemCost(sales.getPriceOfSingleBatch(), sales.getQty()));
+			productCost.add(sales.calculateItemCost(sales.getPriceOfSingleBatch(), sales.getQty(),0));
 			sales.clickOnAddButton();
 			
 			double expectedInvoiceValue = getSumOfArraysDouble(productCost);

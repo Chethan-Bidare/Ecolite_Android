@@ -54,14 +54,16 @@ public class HomePage extends TestBase{
 	
 	@FindBy(id="com.c2info.ecolite:id/button_start")
 	WebElement startPurchaseBtn ;
-	/*
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
 	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
+	@FindBy(id="com.c2info.ecolite:id/tvTotalSaleForDay")
+	WebElement totalSaleForDay ;
+	
+	@FindBy(id="com.c2info.ecolite:id/tvCashSales")
+	WebElement cashSales ;
+	
+	@FindBy(id="com.c2info.ecolite:id/tvCardSales")
+	WebElement cardSales ;
+	/*
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
 	WebElement salescheckbox
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
@@ -135,6 +137,27 @@ public class HomePage extends TestBase{
 		suppBillDisc.sendKeys(billDisc);
 		hideKeyboard();
 		startPurchaseBtn.click();
+	}
+	
+	public double getTodaysTotalSales(){
+		String tts = totalSaleForDay.getText().trim().toString();
+		tts = tts.replaceAll(",", "");
+		double totalSales = Double.parseDouble(tts) ;
+		return totalSales ;
+	}
+	
+	public double getTodaysTotalCashSales(){
+		String ttcs = cashSales.getText().trim().toString();
+		ttcs = ttcs.replaceAll(",", "");
+		double cashSales = Double.parseDouble(ttcs) ;
+		return cashSales ;
+	}
+	
+	public double getTodaysTotalCardSales(){
+		String ttcs = cardSales.getText().trim().toString();
+		ttcs = ttcs.replaceAll(",", "");
+		double cardSales = Double.parseDouble(ttcs) ;
+		return cardSales ;
 	}
 	
 }

@@ -34,17 +34,14 @@ public class LoginPage extends TestBase{
 		try {
 			this.userid.sendKeys(userid);
 			this.password.sendKeys(password);
-			hideKeyboard();
 			signinButton.click();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 		try {
 			pwd.sendKeys(password);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
 		}
 		Thread.sleep(40000);
 	}

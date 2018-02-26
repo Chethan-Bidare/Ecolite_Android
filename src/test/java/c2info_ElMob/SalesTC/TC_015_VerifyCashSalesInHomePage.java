@@ -13,7 +13,7 @@ import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
 import c2info_ElMob.UI_Actions.SalesCartPage;
 
-public class TC_013_VerifyItemCount extends TestBase{
+public class TC_015_VerifyCashSalesInHomePage extends TestBase{
 
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{
@@ -23,14 +23,17 @@ public class TC_013_VerifyItemCount extends TestBase{
 	}
 	
 	@Test
-	public void verifyItemCount() throws InterruptedException{
+	public void verifyCashSale() throws InterruptedException{
 		
 		HomePage homepage = new HomePage(driver);
 		Sales sales = new Sales(driver);
 		SalesCartPage salesCart = new SalesCartPage(driver);
 		CheckOutPage checkOut = new CheckOutPage(driver);
 		
+		hideKeyboard();
+		double beforeSale = homepage.getTodaysTotalCashSales();
 		homepage.tapOnStartButton();
+		
 		sales.searchByItemName(APP.getProperty("ItemName0"));
 		sales.clickOnSearchedItem();
 		hideKeyboard();
@@ -41,17 +44,15 @@ public class TC_013_VerifyItemCount extends TestBase{
 		sales.clickOnSearchedItem();
 		hideKeyboard();
 		sales.clickOnAddButton();
-		int itemCountInCartPage = salesCart.getCountOfItemsAddedToCart();
 		salesCart.clickOnGetPayment();
-		int itemCountInCheckOutPage = salesCart.getCountOfItemsAddedToCart();
 		checkOut.clickOnConfirm();
 		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
-		int itemCountInSuccessPage = checkOut.getTotalItemCountInSuccessPage();
+		double saleValue = checkOut.getInvoiceValueInSuccessPage();
+		swipeUpInBatchList();
+		checkOut.clickOnNewSaleButton();
+		double afterSale = homepage.getTodaysTotalCashSales();
 		
-		Assert.assertEquals(itemCountInCartPage, itemCountInCheckOutPage);
-		Assert.assertEquals(itemCountInCartPage, itemCountInSuccessPage);
-		Assert.assertEquals(itemCountInCheckOutPage, itemCountInSuccessPage);
+		Assert.assertEquals(beforeSale+saleValue, afterSale);
 	}
-	
 }
