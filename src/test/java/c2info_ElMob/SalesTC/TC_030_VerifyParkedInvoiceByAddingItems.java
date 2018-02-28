@@ -14,7 +14,7 @@ import c2info_ElMob.UI_Actions.Sales;
 import c2info_ElMob.UI_Actions.SalesCartPage;
 import c2info_ElMob.UI_Actions.SwitchCartPage;
 
-public class TC_029_VerifyParkedInvoiceByDeletingItems extends TestBase{
+public class TC_030_VerifyParkedInvoiceByAddingItems extends TestBase{
 	
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{
@@ -47,11 +47,6 @@ public class TC_029_VerifyParkedInvoiceByDeletingItems extends TestBase{
 		hideKeyboard();
 		sales.clickOnAddButton();
 		
-		sales.searchByItemName(APP.getProperty("ItemName12"));
-		sales.clickOnSearchedItem();
-		hideKeyboard();
-		sales.clickOnAddButton();
-		
 		switchCart.clickOnCartIcon();
 		switchCart.clickOnNewSales();
 		homepage.tapOnStartButton();
@@ -60,18 +55,23 @@ public class TC_029_VerifyParkedInvoiceByDeletingItems extends TestBase{
 		ArrayList<Integer> itemCountAftrParking = switchCart.getItemCountInCart(); 
 		switchCart.clickOnParkedInvoice();
 		salesCart.clickOnCartPage();
-		salesCart.deleteItemBySwiping();
-		Thread.sleep(4000);
+		salesCart.clickOnAddNewItemFromCartPage();
+		sales.searchByItemName(APP.getProperty("ItemName12"));
+		sales.clickOnSearchedItem();
+		hideKeyboard();
+		sales.clickOnAddButton();
+		
 		salesCart.clickOnCartPage();
 		switchCart.clickOnCartIcon();
 		switchCart.clickOnNewSales();
 		homepage.tapOnStartButton();
 		switchCart.clickOnCartIcon();
-		ArrayList<Integer> itemCountAftrDeleting = switchCart.getItemCountInCart();
+		ArrayList<Integer> itemCountAftrAdding = switchCart.getItemCountInCart();
 		
-		System.out.println(itemCountAftrParking+"---"+itemCountAftrDeleting);
-		Assert.assertTrue((itemCountAftrParking.get(0)==itemCountAftrDeleting.get(0)+1)==true);
+		System.out.println(itemCountAftrParking+"---"+itemCountAftrAdding);
+		Assert.assertTrue((itemCountAftrParking.get(0)==itemCountAftrAdding.get(0)-1)==true);
 		
 	}
+
 
 }

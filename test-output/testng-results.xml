@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="161025" started-at="2018-02-28T12:02:21Z" finished-at="2018-02-28T12:05:02Z">
+  <suite name="Default suite" duration-ms="153137" started-at="2018-02-28T12:11:27Z" finished-at="2018-02-28T12:14:01Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="161025" started-at="2018-02-28T12:02:21Z" finished-at="2018-02-28T12:05:02Z">
-      <class name="c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems">
-        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems@60c6f5b]" name="openAPP" is-config="true" duration-ms="77057" started-at="2018-02-28T17:32:21Z" finished-at="2018-02-28T17:33:38Z">
+    <test name="Default test" duration-ms="153137" started-at="2018-02-28T12:11:27Z" finished-at="2018-02-28T12:14:01Z">
+      <class name="c2info_ElMob.SalesTC.TC_030_VerifyParkedInvoiceByAddingItems">
+        <test-method status="PASS" signature="openAPP()[pri:0, instance:c2info_ElMob.SalesTC.TC_030_VerifyParkedInvoiceByAddingItems@60c6f5b]" name="openAPP" is-config="true" duration-ms="75799" started-at="2018-02-28T17:41:27Z" finished-at="2018-02-28T17:42:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openAPP -->
-        <test-method status="PASS" signature="verifyInvoiceLoading()[pri:0, instance:c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems@60c6f5b]" name="verifyInvoiceLoading" duration-ms="83948" started-at="2018-02-28T17:33:38Z" finished-at="2018-02-28T17:35:02Z">
+        <test-method status="PASS" signature="verifyInvoiceLoading()[pri:0, instance:c2info_ElMob.SalesTC.TC_030_VerifyParkedInvoiceByAddingItems@60c6f5b]" name="verifyInvoiceLoading" duration-ms="77306" started-at="2018-02-28T17:42:43Z" finished-at="2018-02-28T17:44:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInvoiceLoading -->
-      </class> <!-- c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_030_VerifyParkedInvoiceByAddingItems -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
