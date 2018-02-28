@@ -3,6 +3,8 @@ package c2info_ElMob.UI_Actions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -73,6 +75,7 @@ public class SalesCartPage extends TestBase {
 	public float getCartTotal(){
 		String carttot = cartTotal.getText().toString().trim();
 		carttot =carttot.replaceAll("\u20B9","").trim();
+		carttot =carttot.replaceAll(",","").trim();
 		float cartTotal = Float.parseFloat(carttot);
 		return cartTotal ;
 	}
@@ -145,6 +148,10 @@ public class SalesCartPage extends TestBase {
 		CustIconInCartPage.click();
 	}
 	
+	public String getCustomerNameFromCustIcon(){
+		return CustIconInCartPage.getText().toString();
+	}
+	
 	public float getPriceForSingleItemInCartPage(){
 		String pr = driver.findElementById("com.c2info.ecolite:id/textview_amount").getText();
 		pr = pr.replaceAll("\u20B9", "");
@@ -165,7 +172,19 @@ public class SalesCartPage extends TestBase {
 		return prices ;
 	}
 	
-	
+	public void deleteItemBySwiping(){
+		/*TouchAction action = new TouchAction(driver);
+		List<WebElement> items = driver.findElementsById("android.widget.FrameLayout");
+		for(int i=1; i<=itemCountToBeDeleted; i++){
+			action.longPress(items.get(i-1)).mov
+		}*/
+		
+		Dimension size = driver.manage().window().getSize();
+		int starty = size.height / 2 ;
+		int startx = (int) (size.width * 0.8) ;
+		int endx = (int) (size.width * 0.2) ;
+		driver.swipe(startx, starty, endx, starty, 3000);
+	}
 	
 	
 }

@@ -367,4 +367,6 @@ public class Sales extends TestBase{
 		itemCost = itemCost - discAmt ;
 		return itemCost ;
 	}
+	
+	
 }

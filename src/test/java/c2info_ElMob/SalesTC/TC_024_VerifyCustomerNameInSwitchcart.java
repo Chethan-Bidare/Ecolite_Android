@@ -1,21 +1,20 @@
 package c2info_ElMob.SalesTC;
 
-import java.io.IOException;
-import java.util.HashMap;
+import static org.testng.Assert.assertTrue;
 
-import org.testng.Assert;
+import java.io.IOException;
+import java.util.ArrayList;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import c2info_ElMob.TestBase.TestBase;
-import c2info_ElMob.UI_Actions.CheckOutPage;
 import c2info_ElMob.UI_Actions.HomePage;
 import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
 import c2info_ElMob.UI_Actions.SalesCartPage;
+import c2info_ElMob.UI_Actions.SwitchCartPage;
 
-public class TC_020_VerifyCustDetailsByChangingCustomer extends TestBase{
-
+public class TC_024_VerifyCustomerNameInSwitchcart extends TestBase{
 	
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{
@@ -25,13 +24,16 @@ public class TC_020_VerifyCustDetailsByChangingCustomer extends TestBase{
 	}
 	
 	@Test
-	public void verifyCustomerDetails() throws InterruptedException{
+	public void verifyCustomerName() throws InterruptedException{
 		
 		HomePage homepage = new HomePage(driver);
 		Sales sales = new Sales(driver);
+		SwitchCartPage switchCart = new SwitchCartPage(driver);
 		SalesCartPage salesCart = new SalesCartPage(driver);
-		CheckOutPage checkOut = new CheckOutPage(driver);
 		
+		//selecting customer "Local"
+		//Adding item to cart
+		//Selecting new Sale from switch cart page
 		homepage.enterCustomerName("l");
 		homepage.selectCustFromDropdown();
 		homepage.tapOnStartButton();
@@ -39,20 +41,23 @@ public class TC_020_VerifyCustDetailsByChangingCustomer extends TestBase{
 		sales.clickOnSearchedItem();
 		hideKeyboard();
 		sales.clickOnAddButton();
-		salesCart.clickOnCustIconInCartPage();
-		sales.searchByCustomerName(OR.getProperty("custName"));
-		sales.clickOnSearchedCustomer();
+		sales.searchByItemName(APP.getProperty("ItemName12"));
+		sales.clickOnSearchedItem();
 		hideKeyboard();
-		salesCart.clickOnGetPayment();
-		HashMap<String,String> custDetails = checkOut.getCustomerDetailsInCheckOut();
-		System.out.println(custDetails);
+		sales.clickOnAddButton();
+		String custName = salesCart.getCustomerNameFromCustIcon();
 		
-		Assert.assertTrue(custDetails.get("CustName")=="VEENA");
-		Assert.assertTrue(custDetails.get("CustMob")=="8147519888");
-		Assert.assertTrue(custDetails.get("CustCity")=="BANGALORE");
-		Assert.assertTrue(custDetails.get("CustState")=="KARNATAKA");
-		//Assert.assertTrue(custDetails.get("CustGST")=="");
+		switchCart.clickOnCartIcon();
+		switchCart.clickOnNewSales();
+		homepage.tapOnStartButton();
+		switchCart.clickOnCartIcon();
+		
+		ArrayList<String> custNames= switchCart.getListOfParkedInvoiceCustomer();
+		System.out.println(custNames);
+		
+		assertTrue(custNames.contains(custName)==true);
 		
 		
 	}
+
 }

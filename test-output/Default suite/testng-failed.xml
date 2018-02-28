@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage">
+      <class name="c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems">
         <methods>
-          <include name="verifyCustomerDetails"/>
           <include name="openAPP"/>
+          <include name="verifyInvoiceLoading"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage -->
+      </class> <!-- c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
