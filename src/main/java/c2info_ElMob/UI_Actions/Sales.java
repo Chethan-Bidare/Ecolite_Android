@@ -1,10 +1,14 @@
 package c2info_ElMob.UI_Actions;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Random;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,9 +28,6 @@ public class Sales extends TestBase{
 
 	@FindBy(id="com.c2info.ecolite:id/etGlobalSearch")
 	WebElement itemSearch ;
-	
-	@FindBy(xpath="")
-	WebElement batchNo ;
 	
 	@FindBy(id="com.c2info.ecolite:id/button_Add")
 	WebElement addButton;
@@ -53,7 +54,38 @@ public class Sales extends TestBase{
 	@FindBy(xpath=".//*[@class='android.widget.FrameLayout' and @index=0]")
 	WebElement searchedCustomerName;
 	
+	@FindBy(id="com.c2info.ecolite:id/editext_batch_no")
+	WebElement batchNo ;
+	
+	@FindBy(id="com.c2info.ecolite:id/edittext_marp")
+	WebElement batchMRP ;
+	
+	@FindBy(id="com.c2info.ecolite:id/edittext_sale_rate")
+	WebElement batchSaleRate ;
+	
+	@FindBy(id="com.c2info.ecolite:id/editext_ptr")
+	WebElement batchPTR ;
+	
+	@FindBy(id="com.c2info.ecolite:id/editext_Qty")
+	WebElement batchLooseQty ;
+	
+	@FindBy(id="com.c2info.ecolite:id/edittext_expiry")
+	WebElement batchExpiry ;
+	
+	@FindBy(id="com.c2info.ecolite:id/btn_add_batch")
+	WebElement batchAddBtn ;
 	/*
+	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
+	WebElement salescheckbox
+	
+	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
+	WebElement salescheckbox
+	
+	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
+	WebElement salescheckbox
+	
+	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
+	WebElement salescheckbox
 	
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
 	WebElement salescheckbox
@@ -288,6 +320,56 @@ public class Sales extends TestBase{
 		
 	}
 	
+	public LinkedHashMap<String,YearMonth> getExpiryFromBatches(){
+		LinkedHashMap<String,YearMonth> batchesWithExp = new LinkedHashMap<String,YearMonth>();
+		
+		List<WebElement> itemBatches = driver.findElementsById("com.c2info.ecolite:id/text_Batch_No");
+		ArrayList<String> batches = new ArrayList<String>();
+		
+		ArrayList<String> expiryDates = new ArrayList<String>();
+		List<WebElement> exp = driver.findElementsById("com.c2info.ecolite:id/text_Batch_Exp");
+		
+		for(WebElement we : itemBatches){
+			batches.add(we.getText().toString().trim());
+		}
+		
+		for(WebElement we : exp){
+			String text = we.getText().trim().toString();
+			expiryDates.add(text);
+		}
+		
+		
+		ArrayList<YearMonth> dateFormat = new ArrayList<YearMonth>();
+		for(String a : expiryDates){
+			String[] parts = a.split("/");
+			String part1 = parts[0];
+			String part2 = "20"+parts[1];
+			int year = Integer.parseInt(part2);
+			int month = Integer.parseInt(part1);
+			YearMonth ym = YearMonth.of(year, month);
+			dateFormat.add(ym);
+		}
+		
+		for(int i=0; i<batches.size(); i++){
+			batchesWithExp.put(batches.get(i), dateFormat.get(i));
+		}
+		
+		return batchesWithExp;
+		
+	}
+	
+	public LinkedHashMap<String,YearMonth> getExpiryFromBatchesBySwiping(){
+		LinkedHashMap<String,YearMonth> expDates = new LinkedHashMap<String, YearMonth>();
+		int count=1 ;
+		while(count<5){
+			expDates.putAll(getExpiryFromBatches());
+			swipeUpInBatchList();
+			count++ ;
+		}
+		
+		return expDates ;
+	}
+	
 	public HashMap<String,Integer> getBatchesWithStockBySwiping(){
 		HashMap<String, Integer> batchWithStk = new HashMap<String, Integer>();
 		int count =1;
@@ -366,6 +448,23 @@ public class Sales extends TestBase{
 		double discAmt = itemCost * (discPer/100) ;
 		itemCost = itemCost - discAmt ;
 		return itemCost ;
+	}
+	
+	public String enterNewbatchDetails(String MRP,String PTR,String LsQty) throws InterruptedException{
+		String batchNO = RandomStringUtils.randomAlphanumeric(6);
+		batchNo.sendKeys(batchNO);
+		batchMRP.sendKeys(MRP);
+		batchPTR.sendKeys(PTR);
+		batchExpiry.click();
+		driver.findElementById("android:id/date_picker_year").click();
+		swipeUpInBatchList();
+		Thread.sleep(2000);
+		driver.findElementByXPath("//android.widget.TextView[contains(@text,'2023')]").click();
+		driver.findElementById("android:id/button1").click();
+		batchLooseQty.sendKeys(LsQty);
+		hideKeyboard();
+		batchAddBtn.click();
+		return batchNO ;
 	}
 	
 	
