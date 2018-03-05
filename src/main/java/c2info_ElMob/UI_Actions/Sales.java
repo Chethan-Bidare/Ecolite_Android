@@ -199,10 +199,10 @@ public class Sales extends TestBase{
 	
 	public void selectBatchByName(String batchNo){
 		
-		touchAction.tap(driver.findElementByName(""+batchNo+""));
-		touchAction.perform();
+		/*touchAction.tap(driver.findElementByName(""+batchNo+""));
+		touchAction.perform();*/
 		//driver.findElementByName(""+batchNo+"").click();
-		//driver.findElementByXPath(".//*[@class='android.widget.TextView' and contains(text(),'"+batchNo+"')]").click();
+		driver.findElementByXPath(".//*[@class='android.widget.TextView' and contains(text(),'"+batchNo+"')]").click();
 	//	driver.findElement(By.xpath(".//*[@class='android.widget.TextView' and @text='"+batchNo+"')]")).click();
 	}
 	
@@ -306,15 +306,17 @@ public class Sales extends TestBase{
 		for(WebElement we : itemBatches){
 			batches.add(we.getText().toString().trim());			
 		}
+		System.out.println(batches);
 		for(WebElement we : itemstock){
 			String pr = we.getText().toString().trim();
 			pr = pr.replaceAll("Stock : +","");
 			int stk = Integer.parseInt(pr);
 			stock.add(stk);
 		}
+		System.out.println(stock);
 		for(int i=0;i<batches.size(); i++){
 			
-			batchesWithStock.put(batches.get(i), stock.get(i));
+			batchesWithStock.put(batches.get(i),stock.get(i));
 		}
 		return batchesWithStock ;
 		

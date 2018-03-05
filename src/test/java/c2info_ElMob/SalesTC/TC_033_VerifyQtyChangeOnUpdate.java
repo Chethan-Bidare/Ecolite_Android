@@ -1,7 +1,6 @@
 package c2info_ElMob.SalesTC;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -11,11 +10,10 @@ import c2info_ElMob.TestBase.TestBase;
 import c2info_ElMob.UI_Actions.HomePage;
 import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
+import c2info_ElMob.UI_Actions.SalesCartPage;
 
-public class TC_032_VerifyAddBatchFunctionality extends TestBase {
+public class TC_033_VerifyQtyChangeOnUpdate extends TestBase{
 
-	String itemName = "A Gen 5 D Data" ;
-	
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{
 		init();
@@ -24,23 +22,28 @@ public class TC_032_VerifyAddBatchFunctionality extends TestBase {
 	}
 	
 	@Test
-	public void verifyNewBatch() throws InterruptedException{
+	public void qtyChangeOnUpdate(){
+		
 		HomePage homepage = new HomePage(driver);
 		Sales sales = new Sales(driver);
-		
+		SalesCartPage cart = new SalesCartPage(driver);
 		homepage.tapOnStartButton();
-		sales.searchByItemName(itemName);
+		sales.searchByItemName(APP.getProperty("ItemName0"));
 		sales.clickOnSearchedItem();
 		hideKeyboard();
-		sales.clickOnAddNewBatch();
-		String batchNO = sales.enterNewbatchDetails("250", "100", "10");
-		System.out.println(batchNO);
 		sales.clickOnAddButton();
-		sales.searchByItemName(itemName);
-		sales.clickOnSearchedItem();
+		cart.clickOnCartPage();
+		cart.clickOnItemInCart();
+		sales.addQtyManually("5");
 		hideKeyboard();
-		HashMap<String, Float> batch = sales.getBatchesWithPriceBySwiping();
-		Assert.assertTrue(batch.containsKey(batchNO)==true);
+		sales.clickOnAddButton();
+		
+		int actualQty = cart.getQtyForSingleItemInCartPage();
+		Assert.assertEquals(actualQty, 5);
+		
+		
 		
 	}
+	
+	
 }

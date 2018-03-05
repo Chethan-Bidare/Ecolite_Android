@@ -44,10 +44,10 @@ public class SalesCartPage extends TestBase {
 	@FindBy(id="com.c2info.ecolite:id/tvCustName_toolbar")
 	WebElement CustIconInCartPage ;
 	
-	/*@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
-	WebElement salescheckbox
+	@FindBy(id="com.c2info.ecolite:id/textview_itemname")
+	WebElement singleItem ;
 	
-	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
+	/*@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
 	WebElement salescheckbox
 	
 	@FindBy(id="com.c2info.ecolite:id/radio_new_sale")
@@ -82,6 +82,11 @@ public class SalesCartPage extends TestBase {
 	
 	public void clickOnCartPage(){
 		cartTotal.click();
+	}
+	
+	public void clickOnItemInCart(){
+		driver.findElementById("com.c2info.ecolite:id/textview_batch").click();
+		//touchAction.longPress(singleItem).perform();
 	}
 	
 	public ArrayList<String> getItemNamesFromcartPage(){
@@ -156,6 +161,14 @@ public class SalesCartPage extends TestBase {
 		String pr = driver.findElementById("com.c2info.ecolite:id/textview_amount").getText();
 		pr = pr.replaceAll("\u20B9", "");
 		Float price = Float.parseFloat(pr);
+		return price ;
+	}
+	
+	public int getQtyForSingleItemInCartPage(){
+		String pr = driver.findElementById("com.c2info.ecolite:id/textview_qty").getText();
+		pr = pr.replaceAll("Qty", "").trim();
+		pr = pr.replaceAll(":", "").trim();
+		int price = Integer.parseInt(pr);
 		return price ;
 	}
 	
