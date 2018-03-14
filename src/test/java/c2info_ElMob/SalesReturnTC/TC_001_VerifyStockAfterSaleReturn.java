@@ -1,4 +1,4 @@
-package c2info_ElMob.SalesTC;
+package c2info_ElMob.SalesReturnTC;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
 import c2info_ElMob.UI_Actions.SalesCartPage;
 
-public class TC_001_VerifyStockAfterSale extends TestBase {
+public class TC_001_VerifyStockAfterSaleReturn extends TestBase{
 
 	@BeforeClass
 	public void openAPP() throws IOException, InterruptedException{
@@ -26,12 +26,13 @@ public class TC_001_VerifyStockAfterSale extends TestBase {
 	
 	
 	@Test(priority=1)
-	public void verifyStockAfterSale(){
+	public void verifyStockAfterSaleReturn(){
 		HomePage homepage = new HomePage(driver);
 		Sales sales = new Sales(driver);
 		SalesCartPage salescartpage = new SalesCartPage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
 		
+		homepage.selectSalesreturnCheckbox();
 		homepage.tapOnStartButton();
 		sales.searchByItemName(APP.getProperty("ItemName0"));
 		HashMap<String,Integer> stockcheck = sales.getItemNamesWithStock();
@@ -47,8 +48,8 @@ public class TC_001_VerifyStockAfterSale extends TestBase {
 		homepage.tapOnStartButton();
 		sales.searchByItemName(APP.getProperty("ItemName0"));
 		HashMap<String,Integer> stockchecknew =  sales.getItemNamesWithStock();
-		int actualStock = stockchecknew.get(APP.getProperty("ItemName0"));
-		Assert.assertEquals(actualStock, stock-1);
+		int actualStock = stockchecknew.get(APP.getProperty("ItemName0")) ;
+		Assert.assertEquals(actualStock, stock+1);
 		
 		
 	}

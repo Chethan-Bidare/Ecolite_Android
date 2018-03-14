@@ -1,4 +1,4 @@
-package c2info_ElMob.SalesTC;
+package c2info_ElMob.SalesReturnTC;
 
 import java.io.IOException;
 
@@ -12,9 +12,9 @@ import c2info_ElMob.UI_Actions.Sales;
 
 
 //incomplete
-public class TC_031_VerifyNearExpiryBatchIsSelected extends TestBase{
+public class TC_028_VerifyNearExpiryBatchIsSelected extends TestBase{
 
-	String itemName = "A Gen 5 D Data";
+String itemName = "A Gen 5 D Data";
 	
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{

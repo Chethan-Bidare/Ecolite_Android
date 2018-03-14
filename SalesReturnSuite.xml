@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sales return Regression Suite" >
+
+  <test name="Test">
+    <classes>
+     <class name="c2info_ElMob.SalesReturnTC.TC_001_VerifyStockAfterSaleReturn"/>
+     <class name="c2info_ElMob.SalesReturnTC.TC_002_VerifyHighestMrpIsDisplayed"/>
+     <class name="c2info_ElMob.SalesReturnTC.TC_003_verifyStockInItemListPage"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_004_VerifyStockAfterAddingToCart"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_005_VerifyDiscountForSingleItem"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_006_VerifyDiscountForMultipleItems"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_007_VerifyCustomerWiseDiscount"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_008_VerifyTaxCalculationItemWise"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_009_VerifyIGSTTaxForMultipleItems"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_010_VerifyLocalTaxForMultipleItems"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_011_VerifyInvoiceValue"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_012_VerifyInvoiceValueWithDisc"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_013_VerifyItemCount"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_014_VerifyPaymentModeCard"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_015_VerifyPaymentModeCash"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_016_VerifyCustomerDetailsInCheckOutPage"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_017_VerifyCustDetailsByChangingCustomer"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_018_VerifyInvoiceParkingFunctionality"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_019_VerifyInvoiceValueInSwitchCart"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_020_VerifyItemCountInSwitchCart"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_021_VerifyCustomerNameInSwitchcart"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_022_VerifyParkedInvoiceIsLoadedToSalesPage"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_023_VerifyParkedInvoiceItemsLoadedToSalescart"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_024_VerifyParkedInvoiceByChangingCustomer"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_025_VerifyParkedInvoiceDeletion"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_026_VerifyParkedInvoiceByDeletingItems"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_027_VerifyParkedInvoiceByAddingItems"/>
+      
+      <class name="c2info_ElMob.SalesReturnTC.TC_029_VerifyAddBatchFunctionality"/>
+      <class name="c2info_ElMob.SalesReturnTC.TC_030_VerifyQtyChangeOnUpdate"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

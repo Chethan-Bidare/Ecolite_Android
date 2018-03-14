@@ -1,7 +1,8 @@
-package c2info_ElMob.SalesTC;
+package c2info_ElMob.SalesReturnTC;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -9,13 +10,10 @@ import c2info_ElMob.TestBase.TestBase;
 import c2info_ElMob.UI_Actions.HomePage;
 import c2info_ElMob.UI_Actions.LoginPage;
 import c2info_ElMob.UI_Actions.Sales;
+import c2info_ElMob.UI_Actions.SalesCartPage;
 
+public class TC_007_VerifyCustomerWiseDiscount extends TestBase{
 
-//incomplete
-public class TC_031_VerifyNearExpiryBatchIsSelected extends TestBase{
-
-	String itemName = "A Gen 5 D Data";
-	
 	@BeforeClass
 	public void openAPP() throws InterruptedException, IOException{
 		init();
@@ -23,18 +21,24 @@ public class TC_031_VerifyNearExpiryBatchIsSelected extends TestBase{
 		lp.doLogin(OR.getProperty("userId"), OR.getProperty("pwd"));
 	}
 	
+	double expectedResult = 25.0 ;
+	
+	
 	@Test
-	public void verifyNearExpiry() throws InterruptedException{
+	public void verifyCustomerWiseDisc(){
 		HomePage homepage = new HomePage(driver);
 		Sales sales = new Sales(driver);
+		SalesCartPage salesCart = new SalesCartPage(driver);
 		
+		homepage.selectSalesreturnCheckbox();
 		homepage.tapOnStartButton();
-		sales.searchByItemName(itemName);
+		salesCart.clickOnCustIconInCartPage();
+		sales.searchByCustomerName(OR.getProperty("custName"));
+		sales.clickOnSearchedCustomer();
+		sales.searchByItemName(APP.getProperty("ItemName0"));
 		sales.clickOnSearchedItem();
 		hideKeyboard();
-		sales.clickOnAddNewBatch();
-		sales.enterNewbatchDetails("250", "100", "10");
-		
-		
+		Assert.assertEquals(sales.getDiscount(), expectedResult);
 	}
+	
 }

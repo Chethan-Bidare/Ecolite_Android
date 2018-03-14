@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sales Regression Suite" >
+
+  <test name="Test">
+    <classes>
+      <class name="c2info_ElMob.SalesTC.TC_001_VerifyStockAfterSale"/>
+      <class name="c2info_ElMob.SalesTC.TC_002_VerifyHighestMrpIsDisplayed"/>
+      <class name="c2info_ElMob.SalesTC.TC_003_verifyStockInItemListPage"/>
+      <class name="c2info_ElMob.SalesTC.TC_004_VerifyStockAfterAddingToCart"/>
+      <class name="c2info_ElMob.SalesTC.TC_005_VerifyDiscountForSingleItem"/>
+      <class name="c2info_ElMob.SalesTC.TC_006_VerifyDiscountForMultipleItems"/>
+      <class name="c2info_ElMob.SalesTC.TC_007_VerifyCustomerWiseDiscount"/>
+      <class name="c2info_ElMob.SalesTC.TC_008_VerifyTaxCalculationItemWise"/>
+      <class name="c2info_ElMob.SalesTC.TC_009_VerifyIGSTTaxForMultipleItems"/>
+      <class name="c2info_ElMob.SalesTC.TC_010_VerifyLocalTaxForMultipleItems"/>
+      <class name="c2info_ElMob.SalesTC.TC_011_VerifyInvoiceValue"/>
+      <class name="c2info_ElMob.SalesTC.TC_012_VerifyInvoiceValueWithDisc"/>
+      <class name="c2info_ElMob.SalesTC.TC_013_VerifyItemCount"/>
+      <class name="c2info_ElMob.SalesTC.TC_014_VerifyTotalSalesInHomePage"/>
+      <class name="c2info_ElMob.SalesTC.TC_015_VerifyCashSalesInHomePage"/>
+      <class name="c2info_ElMob.SalesTC.TC_016_VerifyCardSalesInHomePage"/>
+      <class name="c2info_ElMob.SalesTC.TC_017_VerifyPaymentModeCard"/>
+      <class name="c2info_ElMob.SalesTC.TC_018_VerifyPaymentModeCash"/>
+      <class name="c2info_ElMob.SalesTC.TC_019_VerifyCustomerDetailsInCheckOutPage"/>
+      <class name="c2info_ElMob.SalesTC.TC_020_VerifyCustDetailsByChangingCustomer"/>
+      <class name="c2info_ElMob.SalesTC.TC_021_VerifyInvoiceParkingFunctionality"/>
+      <class name="c2info_ElMob.SalesTC.TC_022_VerifyInvoiceValueInSwitchCart"/>
+      <class name="c2info_ElMob.SalesTC.TC_023_VerifyItemCountInSwitchCart"/>
+      <class name="c2info_ElMob.SalesTC.TC_024_VerifyCustomerNameInSwitchcart"/>
+      <class name="c2info_ElMob.SalesTC.TC_025_VerifyParkedInvoiceIsLoadedToSalesPage"/>
+      <class name="c2info_ElMob.SalesTC.TC_026_VerifyParkedInvoiceItemsLoadedToSalescart"/>
+      <class name="c2info_ElMob.SalesTC.TC_027_VerifyParkedInvoiceByChangingCustomer"/>
+      <class name="c2info_ElMob.SalesTC.TC_028_VerifyParkedInvoiceDeletion"/>
+      <class name="c2info_ElMob.SalesTC.TC_029_VerifyParkedInvoiceByDeletingItems"/>
+      <class name="c2info_ElMob.SalesTC.TC_030_VerifyParkedInvoiceByAddingItems"/>
+      <class name="c2info_ElMob.SalesTC.TC_031_VerifyNearExpiryBatchIsSelected"/>
+      <class name="c2info_ElMob.SalesTC.TC_032_VerifyAddBatchFunctionality"/>
+      <class name="c2info_ElMob.SalesTC.TC_033_VerifyQtyChangeOnUpdate"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
