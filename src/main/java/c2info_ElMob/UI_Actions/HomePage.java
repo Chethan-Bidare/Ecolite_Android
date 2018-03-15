@@ -110,6 +110,7 @@ public class HomePage extends TestBase{
 		int y = customerName.getLocation().getY();
 		TouchAction action = new TouchAction(driver).tap(x+100, y+100).release();
 		action.perform();
+		
 	}
 	
 	/*public void clearText(){

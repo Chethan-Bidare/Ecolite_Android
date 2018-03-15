@@ -82,7 +82,6 @@ public class TC_006_VerifyDiscountForMultipleItems extends TestBase {
 		CheckOutPage checkOut = new CheckOutPage(driver);
 		
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		swipeUpInBatchList();
 		float actualDiscInSuccessPage = checkOut.getDiscValueInSuccessPage();

@@ -218,6 +218,7 @@ TouchAction touchAction = new TouchAction(driver);
 	public float getAmtPaidInSuccessPage(){
 		String amt = amtPaid.getText().trim().toString();
 		amt = amt.replaceAll("\u20B9","");
+		amt = amt.replaceAll(",","");
 		float amtPaid = Float.parseFloat(amt);
 		return amtPaid ;
 	}

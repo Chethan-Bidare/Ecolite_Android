@@ -3,104 +3,30 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Sales return Regression Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="c2info_ElMob.SalesReturnTC.TC_005_VerifyDiscountForSingleItem">
-        <methods>
-          <include name="verifySingleItemDisc"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_005_VerifyDiscountForSingleItem -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_016_VerifyCustomerDetailsInCheckOutPage">
-        <methods>
-          <include name="verifyCustomerDetails"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_016_VerifyCustomerDetailsInCheckOutPage -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_022_VerifyParkedInvoiceIsLoadedToSalesPage">
-        <methods>
-          <include name="verifyInvoiceLoading"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_022_VerifyParkedInvoiceIsLoadedToSalesPage -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_024_VerifyParkedInvoiceByChangingCustomer">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyInvoiceLoading"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_024_VerifyParkedInvoiceByChangingCustomer -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_019_VerifyInvoiceValueInSwitchCart">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyInvoiceValue"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_019_VerifyInvoiceValueInSwitchCart -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_010_VerifyLocalTaxForMultipleItems">
-        <methods>
-          <include name="verifyIGSTTax"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_010_VerifyLocalTaxForMultipleItems -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_012_VerifyInvoiceValueWithDisc">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyInvoiceValue"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_012_VerifyInvoiceValueWithDisc -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_026_VerifyParkedInvoiceByDeletingItems">
-        <methods>
-          <include name="verifyInvoiceLoading"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_026_VerifyParkedInvoiceByDeletingItems -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_021_VerifyCustomerNameInSwitchcart">
-        <methods>
-          <include name="verifyCustomerName"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_021_VerifyCustomerNameInSwitchcart -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_003_verifyStockInItemListPage">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyStock"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_003_verifyStockInItemListPage -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_020_VerifyItemCountInSwitchCart">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyItemCount"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_020_VerifyItemCountInSwitchCart -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_006_VerifyDiscountForMultipleItems">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyMultipleItemDiscInSuccessPage"/>
-          <include name="verifyMultipleItemDiscInCheckOutPage"/>
-          <include name="verifyMultipleItemDiscInCartPage"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_006_VerifyDiscountForMultipleItems -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_002_VerifyHighestMrpIsDisplayed">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyHighestMrp"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_002_VerifyHighestMrpIsDisplayed -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_029_VerifyAddBatchFunctionality">
-        <methods>
-          <include name="openAPP"/>
-          <include name="verifyNewBatch"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_029_VerifyAddBatchFunctionality -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_025_VerifyParkedInvoiceDeletion">
-        <methods>
-          <include name="verifyInvoiceLoading"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_025_VerifyParkedInvoiceDeletion -->
       <class name="c2info_ElMob.SalesReturnTC.TC_013_VerifyItemCount">
         <methods>
           <include name="verifyItemCount"/>
           <include name="openAPP"/>
         </methods>
       </class> <!-- c2info_ElMob.SalesReturnTC.TC_013_VerifyItemCount -->
+      <class name="c2info_ElMob.SalesReturnTC.TC_005_VerifyDiscountForSingleItem">
+        <methods>
+          <include name="verifySingleItemDisc"/>
+          <include name="openAPP"/>
+        </methods>
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_005_VerifyDiscountForSingleItem -->
+      <class name="c2info_ElMob.SalesReturnTC.TC_024_VerifyParkedInvoiceByChangingCustomer">
+        <methods>
+          <include name="openAPP"/>
+          <include name="verifyInvoiceLoading"/>
+        </methods>
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_024_VerifyParkedInvoiceByChangingCustomer -->
+      <class name="c2info_ElMob.SalesReturnTC.TC_010_VerifyLocalTaxForMultipleItems">
+        <methods>
+          <include name="verifyIGSTTax"/>
+          <include name="openAPP"/>
+        </methods>
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_010_VerifyLocalTaxForMultipleItems -->
       <class name="c2info_ElMob.SalesReturnTC.TC_014_VerifyPaymentModeCard">
         <methods>
           <include name="verifyCardSale"/>
@@ -113,12 +39,12 @@
           <include name="openAPP"/>
         </methods>
       </class> <!-- c2info_ElMob.SalesReturnTC.TC_017_VerifyCustDetailsByChangingCustomer -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_018_VerifyInvoiceParkingFunctionality">
+      <class name="c2info_ElMob.SalesReturnTC.TC_012_VerifyInvoiceValueWithDisc">
         <methods>
           <include name="openAPP"/>
-          <include name="verifyInvoiceParking"/>
+          <include name="verifyInvoiceValue"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_018_VerifyInvoiceParkingFunctionality -->
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_012_VerifyInvoiceValueWithDisc -->
       <class name="c2info_ElMob.SalesReturnTC.TC_004_VerifyStockAfterAddingToCart">
         <methods>
           <include name="verifyStock"/>
@@ -131,12 +57,6 @@
           <include name="verifyStockAfterSaleReturn"/>
         </methods>
       </class> <!-- c2info_ElMob.SalesReturnTC.TC_001_VerifyStockAfterSaleReturn -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_007_VerifyCustomerWiseDiscount">
-        <methods>
-          <include name="verifyCustomerWiseDisc"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_007_VerifyCustomerWiseDiscount -->
       <class name="c2info_ElMob.SalesReturnTC.TC_008_VerifyTaxCalculationItemWise">
         <methods>
           <include name="openAPP"/>
@@ -162,24 +82,26 @@
           <include name="verifyCashSale"/>
         </methods>
       </class> <!-- c2info_ElMob.SalesReturnTC.TC_015_VerifyPaymentModeCash -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_030_VerifyQtyChangeOnUpdate">
-        <methods>
-          <include name="qtyChangeOnUpdate"/>
-          <include name="openAPP"/>
-        </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_030_VerifyQtyChangeOnUpdate -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_023_VerifyParkedInvoiceItemsLoadedToSalescart">
+      <class name="c2info_ElMob.SalesReturnTC.TC_006_VerifyDiscountForMultipleItems">
         <methods>
           <include name="openAPP"/>
-          <include name="verifyInvoiceLoading"/>
+          <include name="verifyMultipleItemDiscInSuccessPage"/>
+          <include name="verifyMultipleItemDiscInCheckOutPage"/>
+          <include name="verifyMultipleItemDiscInCartPage"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_023_VerifyParkedInvoiceItemsLoadedToSalescart -->
-      <class name="c2info_ElMob.SalesReturnTC.TC_027_VerifyParkedInvoiceByAddingItems">
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_006_VerifyDiscountForMultipleItems -->
+      <class name="c2info_ElMob.SalesReturnTC.TC_002_VerifyHighestMrpIsDisplayed">
         <methods>
           <include name="openAPP"/>
-          <include name="verifyInvoiceLoading"/>
+          <include name="verifyHighestMrp"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesReturnTC.TC_027_VerifyParkedInvoiceByAddingItems -->
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_002_VerifyHighestMrpIsDisplayed -->
+      <class name="c2info_ElMob.SalesReturnTC.TC_029_VerifyAddBatchFunctionality">
+        <methods>
+          <include name="openAPP"/>
+          <include name="verifyNewBatch"/>
+        </methods>
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_029_VerifyAddBatchFunctionality -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Sales return Regression Suite] -->

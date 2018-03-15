@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="c2info_ElMob.SalesTC.TC_033_VerifyQtyChangeOnUpdate">
+      <class name="c2info_ElMob.SalesReturnTC.TC_017_VerifyCustDetailsByChangingCustomer">
         <methods>
-          <include name="qtyChangeOnUpdate"/>
+          <include name="verifyCustomerDetails"/>
           <include name="openAPP"/>
         </methods>
-      </class> <!-- c2info_ElMob.SalesTC.TC_033_VerifyQtyChangeOnUpdate -->
+      </class> <!-- c2info_ElMob.SalesReturnTC.TC_017_VerifyCustDetailsByChangingCustomer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -66,7 +66,6 @@ public class TC_011_VerifyInvoiceValue extends TestBase{
 		
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		double actualInvoiceValue = checkOut.getInvoiceValueInSuccessPage();
 		actualInvoiceValue = Math.round(actualInvoiceValue);

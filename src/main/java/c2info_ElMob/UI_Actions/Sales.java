@@ -375,7 +375,7 @@ public class Sales extends TestBase{
 	public HashMap<String,Integer> getBatchesWithStockBySwiping(){
 		HashMap<String, Integer> batchWithStk = new HashMap<String, Integer>();
 		int count =1;
-		while(count<5){
+		while(count<15){
 			batchWithStk.putAll(getBatchesWithStock());
 			swipeUpInBatchList();
 			count++ ;
@@ -388,6 +388,7 @@ public class Sales extends TestBase{
 	public int getSumOfStockofAllBatchesbySwiping(){
 		int sum = 0;
 		for(Integer i : getBatchesWithStockBySwiping().values()){
+			System.out.println(i);
 			sum += i ;
 		}
 		return sum ;
@@ -396,7 +397,7 @@ public class Sales extends TestBase{
 	public HashMap<String,Float> getBatchesWithPriceBySwiping(){
 		HashMap<String, Float> batchWithPrice = new HashMap<String, Float>();
 		int count =1;
-		while(count<5){
+		while(count<15){
 			batchWithPrice.putAll(getBatchesWithPrice());
 			swipeUpInBatchList();
 			count++ ;
@@ -469,5 +470,14 @@ public class Sales extends TestBase{
 		return batchNO ;
 	}
 	
+	public int getStockForSingleItem(){
+		String stock = driver.findElementById("com.c2info.ecolite:id/textview_itemcount").getText();
+		
+			String val = stock.toString();
+			val = val.substring(1);
+			int value = Integer.parseInt(val);
+			
+			return value ;
 	
+	}
 }

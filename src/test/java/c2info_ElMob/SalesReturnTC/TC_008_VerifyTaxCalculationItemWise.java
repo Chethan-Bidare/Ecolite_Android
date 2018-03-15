@@ -44,7 +44,6 @@ public class TC_008_VerifyTaxCalculationItemWise extends TestBase{
 		sales.clickOnAddButton();
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		swipeUpInBatchList();
 		double actualTax = checkOut.getTaxValueInSuccessPage();
@@ -94,7 +93,7 @@ public class TC_008_VerifyTaxCalculationItemWise extends TestBase{
 		totalTaxForAllItems = (double) Math.round(totalTaxForAllItems);
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
+		
 		Thread.sleep(5000);
 		double actualTotalTax = checkOut.getTaxValueInSuccessPage();
 		actualTotalTax = Math.round(actualTotalTax);

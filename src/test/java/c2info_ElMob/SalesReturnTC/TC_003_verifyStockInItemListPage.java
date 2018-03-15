@@ -20,6 +20,8 @@ public class TC_003_verifyStockInItemListPage extends TestBase{
 		lp.doLogin(OR.getProperty("userId"), OR.getProperty("pwd"));
 	}
 	
+	
+	//Checks stock in item list and verifies the stock in batch list page   (APP.getProperty("ItemName0")
 	@Test
 	public void verifyStock(){
 		HomePage hp = new HomePage(driver);
@@ -27,7 +29,7 @@ public class TC_003_verifyStockInItemListPage extends TestBase{
 		
 		hp.selectSalesreturnCheckbox();
 		hp.tapOnStartButton();
-		sales.searchByItemName(APP.getProperty("ItemName0"));
+		sales.searchByItemName("Ajith test");
 		hideKeyboard();
 		int actualStock = sales.getStockOfSearchedItem();
 		sales.clickOnSearchedItem();

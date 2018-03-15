@@ -42,7 +42,6 @@ public class TC_014_VerifyPaymentModeCard extends TestBase{
 		checkOut.selectPaymentModeInCheckOut("Card");
 		hideKeyboard();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		swipeUpInBatchList();
 		String paymode = checkOut.getPaymentModeInSuccessPage();

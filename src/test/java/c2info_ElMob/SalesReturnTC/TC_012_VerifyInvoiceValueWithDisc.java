@@ -71,9 +71,8 @@ public class TC_012_VerifyInvoiceValueWithDisc extends TestBase{
 		
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
-		double actualInvoiceValue = checkOut.getInvoiceValueInSuccessPage();
+		double actualInvoiceValue = checkOut.getAmtPaidInSuccessPage();
 		actualInvoiceValue = Math.round(actualInvoiceValue);
 		Assert.assertEquals(actualInvoiceValue, expectedInvoiceValue);
 	}

@@ -24,7 +24,7 @@ public class TC_010_VerifyLocalTaxForMultipleItems extends TestBase{
 	}
 	
 	@Test(priority=0)
-	public void verifyIGSTTax() throws InterruptedException{
+	public void verifyLocalTax() throws InterruptedException{
 		HomePage homepage = new HomePage(driver);
 		Sales sales = new Sales(driver);
 		SalesCartPage salesCart = new SalesCartPage(driver);
@@ -34,6 +34,8 @@ public class TC_010_VerifyLocalTaxForMultipleItems extends TestBase{
 		
 		
 		homepage.enterCustomerName("l");
+		homepage.selectCustFromDropdown();
+		Thread.sleep(3000);
 		homepage.selectSalesreturnCheckbox();
 		homepage.tapOnStartButton();
 		//First Item adding to cart
@@ -66,7 +68,6 @@ public class TC_010_VerifyLocalTaxForMultipleItems extends TestBase{
 		double expectedSGST = expectedCGST ;
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		double CGSTTax = checkOut.getCGSTValueInSuccessPage();
 		CGSTTax = Math.round(CGSTTax);

@@ -32,6 +32,8 @@ public class TC_009_VerifyIGSTTaxForMultipleItems extends TestBase{
 		ArrayList<Float> mrps = new ArrayList<Float>();
 		ArrayList<Double> taxForAllItems = new ArrayList<Double>();
 		homepage.enterCustomerName("i");
+		homepage.selectCustFromDropdown();
+		Thread.sleep(3000);
 		homepage.selectSalesreturnCheckbox();
 		homepage.tapOnStartButton();
 		//First Item adding to cart
@@ -62,7 +64,6 @@ public class TC_009_VerifyIGSTTaxForMultipleItems extends TestBase{
 		totalTaxForAllItems = (double) Math.round(totalTaxForAllItems);
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		double IGSTTax = checkOut.getIGSTValueInSuccessPage();
 		IGSTTax = Math.round(IGSTTax);

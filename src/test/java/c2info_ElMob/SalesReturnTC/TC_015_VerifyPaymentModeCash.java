@@ -39,7 +39,6 @@ public class TC_015_VerifyPaymentModeCash extends TestBase{
 		sales.clickOnAddButton();
 		salesCart.clickOnGetPayment();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		swipeUpInBatchList();
 		String paymode = checkOut.getPaymentModeInSuccessPage();

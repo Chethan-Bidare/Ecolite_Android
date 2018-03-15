@@ -34,6 +34,12 @@ public class LoginPage extends TestBase{
 		try {
 			this.userid.sendKeys(userid);
 			this.password.sendKeys(password);
+			try{
+				hideKeyboard();
+			}
+			catch(Exception e){
+				
+			}
 			signinButton.click();
 		} catch (Exception e) {
 

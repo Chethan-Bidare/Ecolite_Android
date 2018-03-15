@@ -52,7 +52,6 @@ public class TC_005_VerifyDiscountForSingleItem extends TestBase{
 		float actualDiscInCheckOutPage = checkOut.getDiscValueInCheckOutPage();
 		actualDiscInCheckOutPage = Math.round(actualDiscInCheckOutPage);
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		swipeUpInBatchList();
 		float actualDiscInSuccessPage = checkOut.getDiscValueInSuccessPage();

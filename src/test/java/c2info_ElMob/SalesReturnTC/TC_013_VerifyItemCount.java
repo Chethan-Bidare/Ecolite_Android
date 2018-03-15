@@ -46,7 +46,6 @@ public class TC_013_VerifyItemCount extends TestBase{
 		salesCart.clickOnGetPayment();
 		int itemCountInCheckOutPage = salesCart.getCountOfItemsAddedToCart();
 		checkOut.clickOnConfirm();
-		checkOut.clickOnDenyButton();
 		Thread.sleep(5000);
 		int itemCountInSuccessPage = checkOut.getTotalItemCountInSuccessPage();
 		
